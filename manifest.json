@@ -1,0 +1,16 @@
+{
+  "name": "喬陞鏡片規劃軟體",
+  "short_name": "喬陞鏡片規劃",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#f3f6f4",
+  "theme_color": "#5e7e6b",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/TPZNwhL8/wei-ming-ming-she-ji-1-yi-bian-ji.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
