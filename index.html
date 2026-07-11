@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#5e7e6b">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="喬陞鏡片規劃">
     <link rel="apple-touch-icon" href="https://i.postimg.cc/TPZNwhL8/wei-ming-ming-she-ji-1-yi-bian-ji.png">
+    <link rel="manifest" href="manifest.json">
+    <script>
+    // 註冊 Service Worker 讓網頁支援離線瀏覽與安裝
+    if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+    }
+    </script>
     <title>喬陞鏡片規劃軟體 - 雙視角專業版</title>
     <style>
         * {
@@ -17,12 +25,12 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        body {
+            body {
             background-color: #f3f6f4;
             color: #2c3531;
             overflow-x: hidden;
-            padding-top: env(safe-area-inset-top);
-            padding-bottom: 40px;
+            /* 刪除原本的 padding-top: env(safe-area-inset-top); */
+           padding-bottom: 40px;
         }
 
         /* 強制橫向鎖定遮罩 */
@@ -68,15 +76,15 @@
             body { padding: 0; overflow: hidden; background: #2c3531; }
         }
 
-        /* 頂層頂部欄 */
         .top-header {
-            background: linear-gradient(135deg, #5e7e6b, #7a9a88);
-            color: #ffffff;
-            padding: 18px 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+         background: linear-gradient(135deg, #5e7e6b, #7a9a88);
+           color: #ffffff;
+           /* 修正：加入頂部安全區域留白，防止時間與電量遮擋標題 */
+           padding: calc(18px + env(safe-area-inset-top)) 24px 18px 24px;
+           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
         }
 
         .header-title-area h1 {
