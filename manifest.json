@@ -3,7 +3,7 @@
   "short_name": "喬陞鏡片規劃",
   "start_url": "index.html",
   "display": "standalone",
-  "orientation": "landscape",
+  "orientation": "any",
   "background_color": "#f3f6f4",
   "theme_color": "#5e7e6b",
   "icons": [
